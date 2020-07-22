@@ -1,53 +1,7 @@
 <html>
 <head></head>
 <body>
-<h1>Setup</h1>
-Start with a stock nexus 4
-
-ADB Drivers are needed
-Universal ones from here should work - https://adb.clockworkmod.com/
-But they didn't for me, so I used the google ones - https://dl.google.com/android/repository/usb_driver_r12-windows.zip
-
-* Enable debugging and "adb reboot bootloader"
-* or reboot holding power and volume down
-fastboot devices
-fastboot oem unlock
-adb reboot bootloader
-fastboot oem off-mode-charge 0
-fastboot reboot
-fastboot flash recovery twrp-3.4.0-0-mako.img
-fastboot reboot
-
-adb push parted /
-adb shell
-chmod +x parted
-./parted /dev/block/mmcblk0 p
-umount /data
-umount /sdcard
-umount /cache
-./parted /dev/block/mmcblk0 rm 21
-./parted /dev/block/mmcblk0 rm 22
-./parted /dev/block/mmcblk0 mkpart primary 159 1590
-./parted /dev/block/mmcblk0 mkpart primary 1590 1627
-./parted /dev/block/mmcblk0 p
-./parted /dev/block/mmcblk0 name 21 system
-./parted /dev/block/mmcblk0 name 22 cache
-mke2fs -b 4096 -T ext4 /dev/block/mmcblk0p21
-mke2fs -b 4096 -T ext4 /dev/block/mmcblk0p22
-mount -a
-exit
-
-adb sideload lineage-17.1-20200520-UNOFFICIAL-mako-signed.zip
-adb sideload open_gapps-arm-10.0-pico-20200711.zip
-adb sideload SuperSU-v2.82-201705271822.zip
-
-original http://down-box.appspot.com/qr/nQB0tw7b
-http://down-box.appspot.com/qr/S056sexm
-{
-	"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME": "com.afwsamples.testdpc/com.afwsamples.testdpc.DeviceAdminReceiver",
-	"android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM": "gJD2YwtOiWJHkSMkkIfLRlj-quNqG1fb6v100QmzM9w=",
-	"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION": "https://fairbairn.xyz/afw.apk"
-}
-
+<h1>Shop</h1>
+Welcome
 </body>
-<html>
+</html>
