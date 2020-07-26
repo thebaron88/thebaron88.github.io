@@ -11,16 +11,7 @@ def main() -> None:
     }
     open("prices.json", "w").write(json.dumps(track))
     for can, details in track.items():
-        page = f"""
-<html>    
-  <head>      
-    <title>The Tudors</title>      
-    <meta http-equiv="refresh" content="0;URL='//fairbairn.xyz/shop?id={can}'" />    
-  </head>    
-  <body> 
-    <p>This page has moved to a <a href="//fairbairn.xyz/shop?id={can}">here</a>.</p> 
-  </body>  
-</html>""".strip()
+        page = f"""<!DOCTYPE html><meta http-equiv="refresh" content="0; url=../main.html?C={can}">""".strip()
         open(f"C\\{can}.html", "w").write(page)
         segs = [
             QrSegment.make_alphanumeric("FAIRBAIRN.XYZ/C/"),
