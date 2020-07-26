@@ -9,6 +9,9 @@ def base36encode(number):
         base36 = alphabet[i] + base36
     return base36 or alphabet[0]
 
+def base36decode(number):
+    return int(number, 36)
+
 def main() -> None:
     images = {
         "Dr Pepper": "https://ui.assets-asda.com/dm/asdagroceries/5449000060501_T1",
@@ -24,11 +27,11 @@ def main() -> None:
         "0": "0",
         "1": "1",
         "2": "2",
-        "4": "2",
-        "5": "2",
+        #"4": "2",
+        #"5": "2",
     }
-    for i in range(100):
-        cans[str(i)] = "2"
+    #for i in range(100):
+    #    cans[str(i)] = "2"
         
     tracks = {}
     for can, batch in cans.items():
