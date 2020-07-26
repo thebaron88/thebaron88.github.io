@@ -66,8 +66,8 @@
             const images = document.getElementsByTagName('img');
             const divs = document.getElementsByTagName('div');
             for(let i = 0; i < 35; i++) {
-                images[i].src = "codes/" + encodeURI(i.toString()) + ".svg"
-				divs[i].innerHTML = "0" + (i).toString()
+                images[i].src = "codes/" + encodeURI((i+60).toString(36).toUpperCase()) + ".svg"
+				divs[i].innerHTML = "" + (i+60).toString(36).toUpperCase()
             }
         }
     </script>
