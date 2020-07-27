@@ -13,7 +13,7 @@ for x in range(30):
     for y in range(5):
         c.execute("INSERT INTO batches (type, expiry) VALUES (?, ?)", (x+1, datetime.now()))
         for z in range(24):
-            c.execute("INSERT INTO cans    (batch)              VALUES (?)      ", (y+1,))
+            c.execute("INSERT INTO cans (batch) VALUES (?)", (y+1,))
 conn.commit()
 
 conn.close()
