@@ -27,11 +27,7 @@ def main() -> None:
         "0": "0",
         "1": "1",
         "2": "2",
-        #"4": "2",
-        #"5": "2",
     }
-    #for i in range(100):
-    #    cans[str(i)] = "2"
         
     tracks = {}
     for can, batch in cans.items():
@@ -39,17 +35,15 @@ def main() -> None:
     open("prices.json", "w").write(json.dumps(tracks))
     
     for can, batch in cans.items():
-        encoded_can = base36encode(int(can))
         page = f"""<!DOCTYPE html><meta http-equiv="refresh" content="0; url=../B/{batch}.html">""".strip()
-        open(f"C\\{encoded_can}.html", "w").write(page)
+        open(f"C\\{can}.html", "w").write(page)
         
         segs = [
-            QrSegment.make_alphanumeric("FAIRBAIRN.XYZ/C/" + encoded_can),
-            #QrSegment.make_alphanumeric("FAIRBAIRN.XYZ/C/"),
-            #QrSegment.make_numeric(str(can))
+            QrSegment.make_alphanumeric("FAIRBAIRN.XYZ/C/"),
+            QrSegment.make_numeric(can)
             ]
-        qr = QrCode.encode_segments(segs, QrCode.Ecc.LOW)
-        open(f"codes\\{encoded_can}.svg", "w").write(qr.to_svg_str(4))
+        qr = QrCode.encode_segments(segs, QrCode.Ecc.MEDIUM)
+        open(f"codes\\{can}.svg", "w").write(qr.to_svg_str(4))
 
     for batch, details in batches.items():
         page = f"""
