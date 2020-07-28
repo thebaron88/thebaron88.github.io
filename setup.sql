@@ -9,6 +9,7 @@ create table if not exists batches
 (
 	batch INTEGER not null primary key autoincrement,
 	type INTEGER not null references types,
+	cost INTEGER not null,
 	expiry TIMESTAMP not null
 );
 
