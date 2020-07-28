@@ -11,9 +11,7 @@ pause >nul
 adb shell twrp wipe cache
 adb shell twrp wipe dalvik
 adb shell twrp wipe data
-adb shell mkdir /cache/recovery
-adb shell twrp sideload
-adb sideload lineage-17.1-20200713-UNOFFICIAL-mako.zip
+
 adb reboot system
 
 echo Press any key when adb is enabled on the device
