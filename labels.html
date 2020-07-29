@@ -20,6 +20,9 @@
 			height: 29.7cm;
 			background-color: #b2ffe6;
 		}
+		html, body, table, tbody, tr, td, svg {
+			padding: 0;
+		}
 		td {
 			padding: 0;
 			position: relative;
@@ -30,35 +33,20 @@
 			border-collapse: collapse;
 		}
 		table tr:first-child td {
-			padding-top: 1.1cm !important;
+			padding-top: 0.9cm !important;
 		}
 		table tr td:first-child {
-			padding-left: 0.65cm !important;
+			padding-left: 0.7cm !important;
 		}
-		table tr:nth-child(odd) td:nth-child(odd) {
-			padding: 0;
-			border: 0px solid black;
-			overflow: hidden;
-			display: block;
+		.labelnum {
+			background-color: red;
+			text-align: center;
+		}
+		.qr {
 			height: 3.6cm;
 			width: 3.6cm;
-		}
-		table tr:nth-child(even) td:nth-child(even) {
-			border: 0px solid black;
-			display: block;
-			background-color: red;
-			height: 0.39cm;
-			width: 0.37cm;
-		}
-		table img {
-			width: 100%;
-			display: block;
-		}
-		td div {
-			font-size: 0.38cm;
-			position: absolute;
-			top: -1px;
-			left: -5px;
+			padding-right: 0.4cm;
+			padding-bottom: 0.3cm;
 		}
 		.qrin {
 			position: fixed;
@@ -79,7 +67,6 @@
 			var startNum = parseInt(document.getElementById('startnum').value);
 			const silver0 = document.getElementById('basestr').value;
 			const qrs = document.getElementsByClassName('qr');
-			const divs = document.getElementsByTagName('div');
 			for(let i = 0; i < 35; i++) {
 				segs = [
 					qrcodegen.QrSegment.makeAlphanumeric(silver0),
@@ -87,8 +74,10 @@
 				];
 				qr = qrcodegen.QrCode.encodeSegments(segs, qrcodegen.QrCode.Ecc.MEDIUM);
 				qrs[i].innerHTML = qr.toSvgString(1)
-				//qr.drawCanvas(6, 0, canvases[i]);
-				divs[i].innerHTML = "" + ((i+startNum)).toString()
+			}
+			const divs = document.getElementsByClassName('labelnum');
+			for(let i = 0; i < 5; i++) {
+				divs[i].innerText = "Col Start =" + (i+startNum).toString()
 			}
 		}
 	</script>
@@ -97,171 +86,59 @@
 	<table>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
 		</tr>
 		<tr>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 			<td class="qr"></td>
-			<td></td>
 		</tr>
 		<tr>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
-			<td></td>
-			<td><div>a</div></td>
+			<td class="labelnum"></td>
+			<td class="labelnum"></td>
+			<td class="labelnum"></td>
+			<td class="labelnum"></td>
+			<td class="labelnum"></td>
 		</tr>
 	</table>
 	<div class="qrin no-print">
