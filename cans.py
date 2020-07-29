@@ -37,13 +37,6 @@ def main() -> None:
     for can, batch in cans.items():
         page = f"""<!DOCTYPE html><meta http-equiv="refresh" content="0; url=../B/{batch}.html">""".strip()
         open(f"C\\{can}.html", "w").write(page)
-        
-        segs = [
-            QrSegment.make_alphanumeric("FAIRBAIRN.XYZ/C/"),
-            QrSegment.make_numeric(can)
-            ]
-        qr = QrCode.encode_segments(segs, QrCode.Ecc.MEDIUM)
-        open(f"codes\\{can}.svg", "w").write(qr.to_svg_str(4))
 
     for batch, details in batches.items():
         page = f"""
