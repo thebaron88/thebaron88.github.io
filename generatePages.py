@@ -39,17 +39,11 @@ def main():
         open(f"C\\{can}.html", "w").write(page)
 
     for batch, name, price, expiry, image in conn.execute("SELECT batch, name, price, expiry, image FROM batches INNER JOIN types t on batches.type = t.type").fetchall():
-        page = f"""
-<html>    
-  <head>      
-    <title>Can Shop</title>
-  </head>    
-  <body> 
-    <p>This is the product page for {name}</p>
-    <p>It costs &#163;{price:.2f} and they expire on {expiry}</p>
-    <p><img src="{image}"><img></p>
-  </body>  
-</html>""".strip()
+        page = f"""<!DOCTYPE html>    
+<title>Shop</title>
+<p>This is the product page for {name}
+<p>It costs &#163;{price:.2f} and they expire on {expiry}
+<p><img src="{image}" alt="Can Image">""".strip()
         open(f"B\\{batch}.html", "w").write(page)
 
     conn.close()
