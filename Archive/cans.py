@@ -1,6 +1,5 @@
 import json
 
-from qrcodegen import QrCode, QrSegment
 
 def base36encode(number):
     alphabet, base36 = ['0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', '']

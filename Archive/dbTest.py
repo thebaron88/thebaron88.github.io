@@ -5,7 +5,7 @@ conn = sqlite3.connect('shop.db')
 conn.execute("PRAGMA foreign_keys = 1")
 
 c = conn.cursor()
-c.executescript(open("setup.sql").read())
+c.executescript(open("../setup.sql").read())
 conn.commit()
 
 for x in range(30):
