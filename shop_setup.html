@@ -381,7 +381,15 @@ adb sideload SuperSU-v2.82-201705271822.zip
 adb root
 adb shell
 echo "0" > /sys/class/power_supply/battery/device/charge
-echo '4200000' > /sys/class/power_supply/battery/voltage_max_design
+chmod 644 /sys/class/power_supply/battery/voltage_max_design
+echo '3780000' > /sys/class/power_supply/battery/voltage_max_design // Just kills the phone
+cat /sys/class/power_supply/battery/voltage_now
+
+3780000 is 1/2 way min and max
+
+100% is about 4360000
+53% is about 3756168
+0% is about 3200000
 
 </body>
 </html>
