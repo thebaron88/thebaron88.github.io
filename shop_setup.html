@@ -377,5 +377,11 @@ adb sideload open_gapps-arm-10.0-pico-20200711.zip
 adb sideload SuperSU-v2.82-201705271822.zip
 
 
+
+adb root
+adb shell
+echo "0" > /sys/class/power_supply/battery/device/charge
+echo '4200000' > /sys/class/power_supply/battery/voltage_max_design
+
 </body>
 </html>
