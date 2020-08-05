@@ -14,14 +14,14 @@ def setup_database():
         "Emerge Energy Drink": "TODO",
     }
     batches = {
-        "1": {"name": 1, "price": 0.50, "expiry": "2021-06-30"},
-        "2": {"name": 3, "price": 0.70, "expiry": "2021-02-30"},
-        "3": {"name": 4, "price": 0.80, "expiry": "2021-01-28"},
-        "4": {"name": 5, "price": 0.50, "expiry": "2020-11-30"},
-        "5": {"name": 6, "price": 0.50, "expiry": "2020-10-28"},
-        "6": {"name": 7, "price": 0.50, "expiry": "2020-09-30"},
-        "7": {"name": 8, "price": 0.50, "expiry": "2020-09-28"},
-        "8": {"name": 9, "price": 0.50, "expiry": "2020-09-28"},
+        "1": {"name": 1, "price": 50, "expiry": "2021-06-30"},
+        "2": {"name": 3, "price": 70, "expiry": "2021-02-30"},
+        "3": {"name": 4, "price": 80, "expiry": "2021-01-28"},
+        "4": {"name": 5, "price": 50, "expiry": "2020-11-30"},
+        "5": {"name": 6, "price": 50, "expiry": "2020-10-28"},
+        "6": {"name": 7, "price": 50, "expiry": "2020-09-30"},
+        "7": {"name": 8, "price": 50, "expiry": "2020-09-28"},
+        "8": {"name": 9, "price": 50, "expiry": "2020-09-28"},
     }
     cans = {
         "0": "0",
@@ -79,6 +79,7 @@ def main():
         open(f"C\\{can}.html", "w").write(page)
 
     for batch, name, price, expiry, image in conn.execute("SELECT batch, name, price, expiry, image FROM batches INNER JOIN types t on batches.type = t.type").fetchall():
+        floatprice = float(price) / 100
         page = f"""<!DOCTYPE html>    
 <title>Shop</title>
 <p>This is the product page for {name}
