@@ -48,7 +48,7 @@
 			let codewidth;
 			let xmax;
 			let ymax;
-			if (true) {
+			if (false) {
 				margintop = 14;
 				marginleft = 11;
 				codewidth = 25;
@@ -81,7 +81,7 @@
 					];
 					qr = qrcodegen.QrCode.encodeSegments(segs, qrcodegen.QrCode.Ecc.MEDIUM);
 					var element = document.createElement("div");
-					element.innerHTML = qr.toSvgString(pos/2)
+					element.innerHTML = qr.toSvgString(6) // pos/2
 					element.style.position = 'absolute';
 					element.style.left = (marginleft+x*leftoffset).toString()+'mm';
 					element.style.top = (margintop+y*rightoffset).toString()+'mm';
@@ -100,7 +100,7 @@
 <body onload="redraw()">
 	<div class="qrin no-print">
 		<input id="basestr" type="text" value="FAIRBAIRN.XYZ/C/" onchange="redraw()"/>
-		<input id="startnum" type="text" value="0" onchange="redraw()"/>
+		<input id="startnum" type="text" value="1" onchange="redraw()"/>
 	</div>
 </body>
 </html>

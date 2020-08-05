@@ -1,2 +1,3 @@
 /codes/*.svg
 /.idea/
+/__pycache__/*.pyc
