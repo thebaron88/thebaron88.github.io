@@ -83,7 +83,7 @@ def main():
         page = f"""<!DOCTYPE html>    
 <title>Shop</title>
 <p>This is the product page for {name}
-<p>It costs &#163;{price:.2f} and they expire on {expiry}
+<p>It costs &#163;{floatprice:.2f} and they expire on {expiry}
 <p><img src="{image}" alt="Can Image">""".strip()
         open(f"B\\{batch}.html", "w").write(page)
 
