@@ -391,5 +391,33 @@ cat /sys/class/power_supply/battery/voltage_now
 53% is about 3756168
 0% is about 3200000
 
+
+
+C:\Users\fam9yok\AppData\Local\Android\Sdk\platform-tools
+
+So that didnt work, so went to recovery
+adb reboot bootloader
+fastboot boot C:\Users\fam9yok\Downloads\twrp-3.4.0-0-mako.img
+adb shell twrp sideload
+adb sideload Magisk-v20.4.zip
+adb shell twrp reboot ed1
+adb install MagiskManager-v7.5.1.apk
+adb install AccA
+
+adb reboot bootloader
+fastboot boot recover.img
+adb shell twrp sideload
+adb sideload C:\Users\fam9yok\Downloads\org.fdroid.fdroid.privileged.ota_2110.zip
+adb shell twrp reboot ed1
+
+
+Install acc
+
+The adb root
+adb shell
+https://github.com/VR-25/acc/blob/master/README.md
+acc 101 -1; acc -s v 3700
+
+
 </body>
 </html>
